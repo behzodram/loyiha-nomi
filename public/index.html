@@ -47,7 +47,12 @@
       "addressLocality": "Toshkent",
       "addressCountry": "UZ"
     },
-    "hasMap": "https://maps.app.goo.gl/nYyiG6ybedFb9wpt6",
+    "hasMap": "https://maps.app.goo.gl/GxDp2JzFEjrmj8HS7",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.2994958,
+      "longitude": 69.2400734
+    },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
@@ -303,6 +308,23 @@
       font-weight:700;border-bottom:1px dashed var(--gold);align-self:flex-start;padding-bottom:2px;transition:.25s;
     }
     .addr-link:hover{color:var(--gold)}
+    .info-card .big.addr-pin{
+      color:var(--ink);text-decoration:none;align-self:flex-start;
+      border-bottom:1px dashed var(--gold);transition:.25s;
+    }
+    .info-card .big.addr-pin:hover{color:var(--gold)}
+    .plus-code{
+      display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin:0;
+      background:var(--ivory);border:1px dashed var(--gold);color:var(--navy);
+      padding:7px 14px;border-radius:999px;font-size:.86rem;font-weight:700;letter-spacing:.02em;
+    }
+    .plus-code svg{color:var(--gold);flex:none}
+    .map-card{
+      grid-column:1/-1;position:relative;background:var(--white);
+      border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+      border:1px solid var(--ivory-2);
+    }
+    .map-card .map-frame{display:block;width:100%;height:min(440px,58vh);border:0;background:var(--ivory-2)}
 
     /* contact footer */
     .contact{background:var(--navy-deep);color:var(--ivory);position:relative;overflow:hidden}
@@ -315,13 +337,17 @@
     .contact .kicker{color:var(--gold)}
     .contact p{color:rgba(247,243,236,.78)}
     .contact-list{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
-    .contact-list a,.contact-list span{
+    .contact-list > li > a,.contact-list > li > span{
       display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ivory);
       background:rgba(247,243,236,.06);border:1px solid rgba(247,243,236,.1);
       padding:15px 18px;border-radius:14px;transition:.3s;font-weight:600;
     }
-    .contact-list a:hover{background:rgba(201,161,92,.16);border-color:var(--gold);transform:translateX(4px)}
-    .contact-list .ic{width:40px;height:40px;border-radius:12px;background:rgba(201,161,92,.18);color:var(--gold);display:grid;place-items:center;flex-shrink:0}
+    .contact-list > li > a:hover{background:rgba(201,161,92,.16);border-color:var(--gold);transform:translateX(4px)}
+    .contact-list .ic{
+      width:40px;height:40px;flex:0 0 40px;align-self:center;margin:0;padding:0;border:0;
+      border-radius:12px;background:rgba(201,161,92,.18);color:var(--gold);
+      display:grid;place-items:center;
+    }
     .contact-list .ic svg{width:19px;height:19px}
     .contact-list small{display:block;font-weight:400;color:rgba(247,243,236,.6);font-size:.8rem}
     .contact-photo{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
@@ -350,6 +376,7 @@
     }
     @media (max-width:900px){
       .about-grid,.info-grid,.contact-grid{grid-template-columns:1fr}
+      .map-card .map-frame{height:300px}
       .about-badge{right:12px;bottom:-18px}
       .nav{
         position:fixed;inset:0 0 auto 0;top:0;flex-direction:column;align-items:flex-start;
@@ -633,12 +660,26 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
             </span>
             <h3 data-i18n="addrTitle">Manzil</h3>
-            <p class="big" data-i18n="addrBig">20-qator 7-dokon</p>
-            <p data-i18n="addrSub">Toshkent shahri, O'zbekiston. Bozor rastasi, «Samandar» chinni dokoni.</p>
-            <a class="addr-link" href="https://maps.app.goo.gl/nYyiG6ybedFb9wpt6" target="_blank" rel="noopener">
+            <a class="big addr-pin" href="https://maps.app.goo.gl/GxDp2JzFEjrmj8HS7" target="_blank" rel="noopener" data-i18n="addrBig">20-qator 7, Toshkent shahri</a>
+            <p data-i18n="addrSub">Chinni dokon Samandar · Toshkent, O'zbekiston</p>
+            <p class="plus-code">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              <span data-i18n="addrPlus">Plus kod: 76XR+Q2</span>
+            </p>
+            <a class="addr-link" href="https://maps.app.goo.gl/GxDp2JzFEjrmj8HS7" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 20 3 17V4l6 3 6-3 6 3v13l-6 3-6-3z"/><path d="M9 7v13M15 4v13"/></svg>
               <span data-i18n="addrCta">Google Maps'da yo'nalish olish</span>
             </a>
+          </div>
+          <div class="map-card reveal" data-delay="2">
+            <iframe
+              class="map-frame"
+              data-i18n-title="mapTitle"
+              title="Google Maps xaritasi: Chinni dokon Samandar, 20-qator 7, Toshkent"
+              src="https://maps.google.com/maps?q=20-qator+7dokon,+Tashkent,+Uzbekistan&amp;z=17&amp;output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -666,7 +707,7 @@
                 </a>
               </li>
               <li>
-                <a href="https://maps.app.goo.gl/nYyiG6ybedFb9wpt6" target="_blank" rel="noopener">
+                <a href="https://maps.app.goo.gl/GxDp2JzFEjrmj8HS7" target="_blank" rel="noopener">
                   <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
                   <span data-i18n="contactAddr">20-qator 7, Toshkent<small data-i18n="mapSub">Google Maps'da ochish</small></span>
                 </a>
@@ -693,7 +734,7 @@
             <div style="display:flex;gap:18px;flex-wrap:wrap">
               <a href="tel:+998944404432">+998 94 440 44 32</a>
               <a href="https://t.me/karat_001" target="_blank" rel="noopener">Telegram</a>
-              <a href="https://maps.app.goo.gl/nYyiG6ybedFb9wpt6" target="_blank" rel="noopener" data-i18n="navAddress">Manzil</a>
+              <a href="https://maps.app.goo.gl/GxDp2JzFEjrmj8HS7" target="_blank" rel="noopener" data-i18n="navAddress">Manzil</a>
             </div>
           </div>
         </div>
@@ -742,9 +783,11 @@
           infoKicker: "Ish vaqtlari va manzil", infoTitle: "Qachon va qayerda topasiz",
           hoursTitle: "Ish vaqtlari", hoursEvery: "Har kuni 09:00 – 19:00",
           dayWeek: "Dushanba – Juma", daySat: "Shanba", daySun: "Yakshanba",
-          addrTitle: "Manzil", addrBig: "20-qator 7-dokon",
-          addrSub: "Toshkent shahri, O'zbekiston. Bozor rastasi, «Samandar» chinni dokoni.",
+          addrTitle: "Manzil", addrBig: "20-qator 7, Toshkent shahri",
+          addrSub: "Chinni dokon Samandar · Toshkent, O'zbekiston",
+          addrPlus: "Plus kod: 76XR+Q2",
           addrCta: "Google Maps'da yo'nalish olish",
+          mapTitle: "Google Maps xaritasi: Chinni dokon Samandar, 20-qator 7, Toshkent",
           contactKicker: "Aloqa", contactTitle: "Biz bilan bog'laning",
           contactText: "Savol, maslahat yoki buyurtma uchun qo'ng'iroq qiling yoki Telegramda yozing — javob beramiz.",
           phoneSub: "Bosganingizda qo'ng'iroq", tgSub: "Yozing — javob beramiz",
@@ -791,9 +834,11 @@
           infoKicker: "Часы работы и адрес", infoTitle: "Когда и где нас найти",
           hoursTitle: "Часы работы", hoursEvery: "Ежедневно 09:00 – 19:00",
           dayWeek: "Понедельник – пятница", daySat: "Суббота", daySun: "Воскресенье",
-          addrTitle: "Адрес", addrBig: "20-й ряд, 7-й ларёк",
-          addrSub: "Город Ташкент, Узбекистан. Ряд в магазине «Самандар».",
+          addrTitle: "Адрес", addrBig: "20-й ряд, 7, г. Ташкент",
+          addrSub: "Chinni dokon Samandar · Ташкент, Узбекистан",
+          addrPlus: "Плюс-код: 76XR+Q2",
           addrCta: "Построить маршрут в Google Maps",
+          mapTitle: "Карта Google Maps: Chinni dokon Samandar, 20-й ряд 7, Ташкент",
           contactKicker: "Контакты", contactTitle: "Свяжитесь с нами",
           contactText: "Позвоните или напишите в Telegram по вопросу, консультации или заказу — ответим.",
           phoneSub: "Нажмите, чтобы позвонить", tgSub: "Напишите — ответим",
@@ -839,9 +884,11 @@
           infoKicker: "Hours & address", infoTitle: "When and where to find us",
           hoursTitle: "Opening hours", hoursEvery: "Every day 09:00 – 19:00",
           dayWeek: "Monday – Friday", daySat: "Saturday", daySun: "Sunday",
-          addrTitle: "Address", addrBig: "20-qator, stall 7",
-          addrSub: "Tashkent, Uzbekistan. Market row — Samandar porcelain shop.",
+          addrTitle: "Address", addrBig: "20-qator 7, Tashkent city",
+          addrSub: "Chinni dokon Samandar · Tashkent, Uzbekistan",
+          addrPlus: "Plus code: 76XR+Q2",
           addrCta: "Get directions on Google Maps",
+          mapTitle: "Google Maps: Chinni dokon Samandar, 20-qator 7, Tashkent",
           contactKicker: "Contact", contactTitle: "Get in touch",
           contactText: "Call us or write on Telegram for questions, advice or orders — we will reply.",
           phoneSub: "Tap to call", tgSub: "Write us — we reply",
@@ -880,6 +927,11 @@
 
         var h1 = document.querySelector(".hero h1");
         if (h1 && dict.heroTitleHtml) h1.innerHTML = dict.heroTitleHtml;
+
+        document.querySelectorAll("[data-i18n-title]").forEach(function (el) {
+          var tKey = el.getAttribute("data-i18n-title");
+          if (Object.prototype.hasOwnProperty.call(dict, tKey)) el.setAttribute("title", dict[tKey]);
+        });
 
         document.documentElement.lang = lang;
         document.title = dict.title;

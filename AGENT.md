@@ -75,7 +75,7 @@ Yakunida menga:
 qaytaring.
 
 ### Google Maps ma’lumotlari:
-Location: https://maps.app.goo.gl/nYyiG6ybedFb9wpt6
+Location: https://maps.app.goo.gl/GxDp2JzFEjrmj8HS7
 20-qator 7dokon
 Shopping mall
 
